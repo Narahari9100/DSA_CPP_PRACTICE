@@ -120,3 +120,17 @@ git stash drop stash@{0}
 git rebase -i HEAD~3
 git commit --amend
 git cherry-pick <commit_id>
+
+
+
+
+
+```bash
+# 1️⃣ Interactive Rebase — Edit last 3 commits
+git rebase -i HEAD~3
+
+# 2️⃣ Fix last commit message
+git commit --amend -m "Updated commit message"
+
+# 3️⃣ Pick one commit from another branch
+git cherry-pick a1b2c3d
