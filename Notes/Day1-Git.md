@@ -132,3 +132,83 @@ git commit --amend -m "Updated commit message"
 
 # 3️⃣ Pick one commit from another branch
 git cherry-pick a1b2c3d
+
+
+## 🧩 Advanced Git Notes (Professional Developer Level)
+
+
+## 1️⃣ .gitignore
+# Ignore unnecessary files
+.vscode/
+build/
+*.o
+*.out
+*.log
+
+# Practice:
+echo "*.o" > .gitignore
+git add .gitignore
+git commit -m "Added .gitignore"
+
+---
+
+## 2️⃣ Git Reflog (Recover Lost Work)
+git reflog                # View all recent HEAD changes
+git checkout HEAD@{2}     # Move to a previous state
+
+# Practice:
+Delete branch accidentally -> restore using reflog
+
+---
+
+## 3️⃣ Git Hooks (Automation)
+cd .git/hooks
+nano pre-commit
+#!/bin/bash
+echo "Running pre-commit checks..."
+clang-format -i *.cpp
+
+chmod +x pre-commit
+
+# Practice:
+Try committing code -> pre-commit script runs automatically
+
+---
+
+## 4️⃣ Git Worktrees (Parallel Branch Work)
+git worktree add ../feature_branch feature_branch
+cd ../feature_branch
+# Work independently without switching main branch
+
+# Practice:
+Open two folders and edit both branches simultaneously
+
+---
+
+## 5️⃣ Git Bisect (Find Bug Commit)
+git bisect start
+git bisect bad
+git bisect good v1.0
+# Git tests commits to find which introduced bug
+git bisect reset
+
+---
+
+## 6️⃣ Git Aliases (Shortcut Commands)
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.cm "commit -m"
+
+# Usage:
+git st
+git co main
+git cm "Updated README"
+
+---
+
+## 7️⃣ Git Cleanup
+git branch -d old_branch              # Delete local branch
+git push origin --delete old_branch   # Delete remote branch
+git prune                             # Clean up stale branches
+
