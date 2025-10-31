@@ -123,8 +123,6 @@ git cherry-pick <commit_id>
 
 
 
-
-
 ```bash
 # 1️⃣ Interactive Rebase — Edit last 3 commits
 git rebase -i HEAD~3
