@@ -36,6 +36,7 @@ int main() {
     cout << endl;
 
     // Method 2: Using custom implementation
+    //correct code
     reverseArrayCustom(arr2);
     cout << "Reversed array (Custom method): ";
     for (int x : arr2)
