@@ -1,0 +1,16 @@
+name: Auto Merge on Label
+
+on:
+  pull_request:
+    types: [labeled, synchronized]
+
+jobs:
+  auto-merge:
+    if: contains(github.event.pull_request.labels.*.name, 'merge')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto Merge PR
+        uses: pascalgn/automerge-action@v0.16.4
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_METHOD: "squash"  # Squash commits to keep the main branch history clean
